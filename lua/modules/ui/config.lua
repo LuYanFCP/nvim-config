@@ -68,4 +68,15 @@ function config.nvim_tree()
     })
 end
 
+function config.lsp_colors()
+    require("lsp-colors").setup({
+        Error = "#db4b4b",
+        Warning = "#e0af68",
+        Information = "#0db9d7",
+        Hint = "#10B981"
+    })
+end
+
+function config.toggleterm() require("toggleterm").setup() end
+
 return config

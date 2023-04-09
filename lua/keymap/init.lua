@@ -47,5 +47,15 @@ nmap({
     {'<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent)},
     -- bufferline
     {'<C-h>', cmd('BufferLineCyclePrev'), opts(noremap, silent)},
-    {'<C-l>', cmd('BufferLineCycleNext'), opts(noremap, silent)}
+    {'<C-l>', cmd('BufferLineCycleNext'), opts(noremap, silent)},
+    -- git worktree
+    {
+        '<Leader>wt', cmd('Telescope git_worktree git_worktrees'),
+        opts(noremap, silent)
+    }, {
+        '<leader>wtc', cmd('Telescope git_worktree create_git_worktree'),
+        opts(noremap, silent)
+    }, -- terminal
+    {'<Leader>t', cmd('ToggleTerm'), opts(noremap, silent)},
+    {'<Leader>tv', cmd('ToggleTerm direction=vertical'), opts(noremap, silent)}
 })
