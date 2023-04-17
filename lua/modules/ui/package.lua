@@ -24,3 +24,5 @@ package({'nvim-tree/nvim-tree.lua', config = conf.nvim_tree})
 package({'folke/lsp-colors.nvim', config = conf.lsp_colors})
 
 package({'akinsho/toggleterm.nvim', config = conf.toggleterm})
+
+package({'folke/trouble.nvim', config = conf.trobule})

@@ -28,7 +28,8 @@ nmap({
 
 imap({
     -- insert mode
-    {'<C-h>', '<Bs>', opts(noremap)}, {'<C-e>', '<End>', opts(noremap)}
+    {'<C-h>', '<Bs>', opts(noremap)}, {'<C-e>', '<End>', opts(noremap)},
+    {'<C-n>', cmd('Telescope symbols'), opts(noremap, silent)}
 })
 
 -- commandline remap
@@ -57,5 +58,7 @@ nmap({
         opts(noremap, silent)
     }, -- terminal
     {'<Leader>t', cmd('ToggleTerm'), opts(noremap, silent)},
-    {'<Leader>tv', cmd('ToggleTerm direction=vertical'), opts(noremap, silent)}
+    {'<Leader>tv', cmd('ToggleTerm direction=vertical'), opts(noremap, silent)},
+    -- tr
+    {'<Leader>tr', cmd('TroubleToggle'), opts(noremap, silent)}
 })
