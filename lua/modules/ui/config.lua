@@ -136,7 +136,17 @@ function config.lsp_colors()
     })
 end
 
-function config.toggleterm() require("toggleterm").setup() end
+function config.toggleterm()
+    require("toggleterm").setup {
+        open_mapping = [[<c-\>]],
+        winbar = {
+            enabled = true,
+            name_formatter = function(term) --  term: Terminal
+                return term.name
+            end
+        }
+    }
+end
 
 function config.trobule() require("trouble").setup() end
 

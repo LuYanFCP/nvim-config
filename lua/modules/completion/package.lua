@@ -5,7 +5,7 @@ package({
     'neovim/nvim-lspconfig',
     -- used filetype to lazyload lsp
     -- config your language filetype in here
-    ft = {'lua', 'python', 'go', 'rust', 'c', 'cpp'},
+    ft = {'lua', 'python', 'go', 'rust', 'c', 'cpp', 'proto'},
     config = conf.nvim_lsp
 })
 
@@ -34,10 +34,3 @@ package({
 })
 
 package({'L3MON4D3/LuaSnip', event = 'InsertCharPre', config = conf.lua_snip})
-
-package({
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function() require("copilot").setup({}) end
-})

@@ -26,6 +26,8 @@ function config.telescope()
     require('telescope').load_extension('project')
     require('telescope').load_extension('z')
     require("telescope").load_extension("git_worktree")
+    require('telescope').load_extension('git_diffs')
+    require("telescope").load_extension("lazy")
 
 end
 

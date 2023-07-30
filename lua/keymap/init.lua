@@ -1,6 +1,6 @@
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap,
-                               keymap.xmap
+local nmap, imap, cmap, xmap, tmap = keymap.nmap, keymap.imap, keymap.cmap,
+                                     keymap.xmap, keymap.tmap
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -34,31 +34,55 @@ imap({
 
 -- commandline remap
 cmap({'<C-b>', '<Left>', opts(noremap)})
--- usage of plugins
+
+-- Telescope
 nmap({
-    -- plugin manager: Lazy.nvim
+    {'<Leader>b', cmd('Telescope buffers'), opts(noremap, silent)},
+    {'<Leader>fg', cmd('Telescope live_grep'), opts(noremap, silent)},
+    {'<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent)}, {
+        '<Leader>gt', cmd('Telescope git_worktree git_worktrees'),
+        opts(noremap, silent)
+    }, -- git
+    {'<Leader>gc', cmd('Telescope git_commits'), opts(noremap, silent)},
+    {'<Leader>gb', cmd('Telescope git_branches'), opts(noremap, silent)},
+    {'<Leader>gs', cmd('Telescope git_status'), opts(noremap, silent)},
+    {
+        '<Leader>gd', cmd('Telescope git_diffs  diff_commits'),
+        opts(noremap, silent)
+    }, {
+        '<Leader>wtc', cmd('Telescope git_worktree create_git_worktree'),
+        opts(noremap, silent)
+    }, {'<Leader>wts', cmd('Telescope git_worktree'), opts(noremap, silent)},
+    {'<Leader>lz', cmd('Telescope lazy'), opts(noremap, silent)}
+})
+
+-- terminal
+nmap({
+    {'<Leader>tv', cmd('ToggleTerm direction=vertical'), opts(noremap, silent)},
+    {
+        '<Leader>th', cmd('ToggleTerm direction=horizontal'),
+        opts(noremap, silent)
+    }, {'<Leader>ft', cmd('ToggleTerm direction=float'), opts(noremap, silent)}
+})
+
+-- lazy
+nmap({
     {'<Leader>pu', cmd('Lazy update'), opts(noremap, silent)},
-    {'<Leader>pi', cmd('Lazy install'), opts(noremap, silent)}, -- dashboard
+    {'<Leader>pi', cmd('Lazy install'), opts(noremap, silent)} -- dashboard
+})
+
+-- help tools
+nmap({
+    {'<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent)}, -- Telescope
+    {'<Leader>tt', cmd('TroubleToggle'), opts(noremap, silent)},
+    -- plugin manager: Lazy.nvim
     {'<Leader>n', cmd('DashboardNewFile'), opts(noremap, silent)},
     {'<Leader>ss', cmd('SessionSave'), opts(noremap, silent)},
     {'<Leader>sl', cmd('SessionLoad'), opts(noremap, silent)}, -- nvimtree
-    {'<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent)}, -- Telescope
-    {'<Leader>b', cmd('Telescope buffers'), opts(noremap, silent)},
-    {'<Leader>fa', cmd('Telescope live_grep'), opts(noremap, silent)},
-    {'<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent)},
-    -- bufferline
+    -- buffer line
     {'<C-h>', cmd('BufferLineCyclePrev'), opts(noremap, silent)},
-    {'<C-l>', cmd('BufferLineCycleNext'), opts(noremap, silent)},
-    -- git worktree
-    {
-        '<Leader>wt', cmd('Telescope git_worktree git_worktrees'),
-        opts(noremap, silent)
-    }, {
-        '<leader>wtc', cmd('Telescope git_worktree create_git_worktree'),
-        opts(noremap, silent)
-    }, -- terminal
-    {'<Leader>t', cmd('ToggleTerm'), opts(noremap, silent)},
-    {'<Leader>tv', cmd('ToggleTerm direction=vertical'), opts(noremap, silent)},
-    -- tr
-    {'<Leader>tr', cmd('TroubleToggle'), opts(noremap, silent)}
+    {'<C-l>', cmd('BufferLineCycleNext'), opts(noremap, silent)}
 })
+
+-- ToggleTerm
+tmap({"<esc>", '<C-\\><C-n>', opts(noremap, silent)})

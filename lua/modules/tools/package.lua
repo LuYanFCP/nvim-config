@@ -11,7 +11,8 @@ package({
         {'nvim-telescope/telescope-media-files.nvim'},
         {'nvim-telescope/telescope-project.nvim'},
         {'nvim-telescope/telescope-symbols.nvim'},
-        {'nvim-telescope/telescope-z.nvim'}, {'ThePrimeagen/git-worktree.nvim'}
+        {'nvim-telescope/telescope-z.nvim'}, {'tsakirist/telescope-lazy.nvim'},
+        {'paopaol/telescope-git-diffs.nvim'}, {'ThePrimeagen/git-worktree.nvim'}
     }
 })
 
@@ -26,3 +27,10 @@ package({
     cmd = 'GitWorktree',
     config = function() require('git-worktree').setup() end
 })
+
+package({
+    'folke/which-key.nvim',
+    config = function() require("which-key").setup() end
+})
+
+package({'sindrets/diffview.nvim'})
