@@ -25,4 +25,29 @@ function config.nvim_treesitter()
     })
 end
 
+function config.guard_config()
+    local ft = require('guard.filetype')
+
+    -- use clang-format and clang-tidy for c/cpp files
+    ft('c'):fmt('clang-format'):lint('clang-tidy')
+
+    ft('cpp'):fmt('clang-format'):lint('clang-tidy')
+
+    -- use stylua to format lua files and no linter
+    ft('lua'):fmt('stylua')
+
+    ft('rust'):fmt('rustfmt')
+
+    -- multiple files register
+    ft('typescript,javascript,typescriptreact'):fmt('prettier')
+
+    -- call setup LAST
+    require('guard').setup({
+        -- the only options for the setup function
+        fmt_on_save = true,
+        -- Use lsp if no formatter was defined for this filetype
+        lsp_as_default_formatter = false
+    })
+end
+
 return config

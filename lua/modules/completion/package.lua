@@ -5,7 +5,7 @@ package({
     'neovim/nvim-lspconfig',
     -- used filetype to lazyload lsp
     -- config your language filetype in here
-    ft = {'lua', 'python', 'go', 'rust', 'c', 'cpp', 'proto'},
+    ft = {'lua', 'python', 'go', 'rust', 'c', 'cpp'},
     config = conf.nvim_lsp
 })
 
@@ -15,9 +15,9 @@ package({
     cmd = 'Lspsaga term_toggle',
     config = conf.lspsaga,
     dependencies = {
-        {"nvim-tree/nvim-web-devicons"},
+        {'nvim-tree/nvim-web-devicons'},
         -- Please make sure you install markdown and markdown_inline parser
-        {"nvim-treesitter/nvim-treesitter"}
+        {'nvim-treesitter/nvim-treesitter'}
     }
 })
 

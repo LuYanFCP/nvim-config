@@ -87,7 +87,7 @@ function config.lualine()
         }
     }
 
-    require('lualine').setup {
+    local config = {
         options = {
             theme = bubbles_theme,
             component_separators = '|',
@@ -117,27 +117,53 @@ function config.lualine()
         extensions = {}
     }
 
+    local function ins_left(component)
+        table.insert(config.sections.lualine_c, component)
+    end
+
+    local function ins_right(component)
+        table.insert(config.sections.lualine_x, component)
+    end
+    ins_left({
+        -- Lsp server name .
+        function()
+            local msg = 'No Active Lsp'
+            local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+            local clients = vim.lsp.get_active_clients()
+            if next(clients) == nil then return msg end
+            for _, client in ipairs(clients) do
+                local filetypes = client.config.filetypes
+                if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                    return client.name
+                end
+            end
+            return msg
+        end,
+        icon = ' LSP:',
+        color = {fg = '#ffffff', gui = 'bold'}
+    })
+    require('lualine').setup(config)
 end
 
 function config.nvim_tree()
-    require("nvim-tree").setup({
-        sort_by = "case_sensitive",
+    require('nvim-tree').setup({
+        sort_by = 'case_sensitive',
         renderer = {group_empty = true},
         filters = {dotfiles = true}
     })
 end
 
 function config.lsp_colors()
-    require("lsp-colors").setup({
-        Error = "#db4b4b",
-        Warning = "#e0af68",
-        Information = "#0db9d7",
-        Hint = "#10B981"
+    require('lsp-colors').setup({
+        Error = '#db4b4b',
+        Warning = '#e0af68',
+        Information = '#0db9d7',
+        Hint = '#10B981'
     })
 end
 
 function config.toggleterm()
-    require("toggleterm").setup {
+    require('toggleterm').setup({
         open_mapping = [[<c-\>]],
         winbar = {
             enabled = true,
@@ -145,9 +171,9 @@ function config.toggleterm()
                 return term.name
             end
         }
-    }
+    })
 end
 
-function config.trobule() require("trouble").setup() end
+function config.trobule() require('trouble').setup() end
 
 return config

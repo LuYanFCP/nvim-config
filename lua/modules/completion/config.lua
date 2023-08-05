@@ -2,7 +2,7 @@ local config = {}
 
 -- config server in this function
 function config.nvim_lsp()
-    local lspconfig = require("lspconfig")
+    local lspconfig = require('lspconfig')
 
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...)
@@ -16,7 +16,7 @@ function config.nvim_lsp()
     end
 
     -- setup python lspconfig
-    lspconfig.pyright.setup {
+    lspconfig.pyright.setup({
         on_attach = on_attach,
         settings = {
             python = {
@@ -26,9 +26,9 @@ function config.nvim_lsp()
                 }
             }
         }
-    }
+    })
     -- setup go lspconfig
-    lspconfig.gopls.setup {}
+    lspconfig.gopls.setup({})
     -- setup lua lspconfig
     lspconfig.lua_ls.setup({
         settings = {
@@ -50,10 +50,9 @@ function config.nvim_lsp()
         }
     })
     -- config clangd
-    lspconfig.clangd.setup {}
+    lspconfig.clangd.setup({})
     -- config rust
-    lspconfig.rust_analyzer.setup {}
-
+    lspconfig.rust_analyzer.setup({})
 end
 
 function config.nvim_cmp()
@@ -63,7 +62,7 @@ function config.nvim_cmp()
         snippet = {
             -- REQUIRED - you must specify a snippet engine
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
                 -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
                 -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
@@ -112,7 +111,7 @@ function config.nvim_cmp()
         lsp['capabilities'] = capabilities
     end
 
-    require("copilot_cmp").setup()
+    require('copilot_cmp').setup()
 end
 
 function config.lua_snip()
@@ -138,8 +137,8 @@ end
 function config.lspsaga() require('lspsaga').setup({}) end
 
 function config.copilot_nvim()
-    require("copilot").setup({
-        cmp = {enabled = true, method = "getCompletionsCycling"},
+    require('copilot').setup({
+        cmp = {enabled = true, method = 'getCompletionsCycling'},
         panel = {enabled = false},
         suggestion = {enabled = true}
     })

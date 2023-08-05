@@ -25,10 +25,9 @@ function config.telescope()
     require('telescope').load_extension('media_files')
     require('telescope').load_extension('project')
     require('telescope').load_extension('z')
-    require("telescope").load_extension("git_worktree")
+    require('telescope').load_extension('git_worktree')
     require('telescope').load_extension('git_diffs')
-    require("telescope").load_extension("lazy")
-
+    require('telescope').load_extension('lazy')
 end
 
 return config

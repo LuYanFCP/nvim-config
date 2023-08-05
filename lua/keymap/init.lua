@@ -85,4 +85,20 @@ nmap({
 })
 
 -- ToggleTerm
-tmap({"<esc>", '<C-\\><C-n>', opts(noremap, silent)})
+tmap({'<esc>', '<C-\\><C-n>', opts(noremap, silent)})
+
+-- lspsage
+nmap({
+    {'gh', cmd('Lspsaga tyd+ref+imp+def'), opts(noremap, silent)},
+    {'gi', cmd('Lspsaga incoming_calls'), opts(noremap, silent)},
+    {'go', cmd('Lspsaga outgoing_calls'), opts(noremap, silent)},
+    {'gd', cmd('Lspsaga peek_type_definition'), opts(noremap, silent)},
+    {'gk', cmd('Lspsaga hover_doc'), opts(noremap, silent)},
+    {'gr', cmd('Lspsaga rename'), opts(noremap, silent)},
+    {'gg', cmd('Lspsaga outline'), opts(noremap, silent)},
+    {'gn', cmd('Lspsaga finder imp'), opts(noremap, silent)},
+    {'ga', cmd('Lspsaga code_action'), opts(noremap, silent)}
+})
+
+-- lint and fmt
+nmap({'v', cmd('GuardFmt'), opts(noremap, silent)})
