@@ -51,6 +51,7 @@ nmap({
   { '<Leader>gc', cmd('Telescope git_commits'), opts(noremap, silent) },
   { '<Leader>gb', cmd('Telescope git_branches'), opts(noremap, silent) },
   { '<Leader>gs', cmd('Telescope git_status'), opts(noremap, silent) },
+  { '<Leader>gh', cmd('Telescope git_stash'), opts(noremap, silent) },
   {
     '<Leader>gd',
     cmd('Telescope git_diffs  diff_commits'),
@@ -63,6 +64,8 @@ nmap({
   },
   { '<Leader>wts', cmd('Telescope git_worktree'), opts(noremap, silent) },
   { '<Leader>lz', cmd('Telescope lazy'), opts(noremap, silent) },
+  { '<Leader>dv', cmd('DiffviewFileHistory %'), opts(noremap, silent) },
+  { '<Leader>dc', cmd('DiffviewClose'), opts(noremap, silent) },
 })
 
 -- terminal
@@ -85,6 +88,7 @@ nmap({
 -- help tools
 nmap({
   { '<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent) }, -- Telescope
+  { '<Leader>bf', cmd('NvimTreeFindFile'), opts(noremap, silent) },
   { '<Leader>tt', cmd('TroubleToggle'), opts(noremap, silent) },
   -- plugin manager: Lazy.nvim
   { '<Leader>n', cmd('DashboardNewFile'), opts(noremap, silent) },
@@ -109,6 +113,7 @@ nmap({
   { 'gg', cmd('Lspsaga outline'), opts(noremap, silent) },
   { 'gn', cmd('Lspsaga finder imp'), opts(noremap, silent) },
   { 'ga', cmd('Lspsaga code_action'), opts(noremap, silent) },
+  { 'gf', cmd('Lspsaga finder'), opts(noremap, silent) },
 })
 
 -- lint and fmt
