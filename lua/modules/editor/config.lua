@@ -69,4 +69,12 @@ function config.guard_config()
   })
 end
 
+function config.persisted()
+  require('persisted').setup()
+end
+
+function config.hlchunk()
+  require('hlchunk').setup({})
+end
+
 return config

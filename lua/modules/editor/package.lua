@@ -14,3 +14,13 @@ package({
   dev = true,
   config = conf.guard_config,
 })
+
+package({
+  'olimorris/persisted.nvim',
+  config = conf.persisted,
+})
+
+package({
+  'shellRaining/hlchunk.nvim',
+  config = conf.hlchunk,
+})
