@@ -11,7 +11,6 @@ package({
 
 package({
   'LuYanFCP/guard.nvim',
-  dev = true,
   config = conf.guard_config,
 })
 

@@ -40,3 +40,15 @@ package({
 })
 
 package({ 'L3MON4D3/LuaSnip', event = 'InsertCharPre', config = conf.lua_snip })
+
+package({
+    'williamboman/mason.nvim',
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗"
+      }
+    },
+    config = conf.mason,
+})

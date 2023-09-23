@@ -150,4 +150,8 @@ function config.copilot_nvim()
   })
 end
 
+function config.mason()
+  require("mason").setup()
+end
+
 return config
