@@ -1,7 +1,7 @@
 local package = require('core.pack').package
 local conf = require('modules.ui.config')
 
-package({ 'glepnir/zephyr-nvim', config = conf.zephyr })
+package({ 'catppuccin/nvim', config = conf.catppuccin})
 
 package({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 

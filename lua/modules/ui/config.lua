@@ -1,7 +1,19 @@
 local config = {}
 
-function config.zephyr()
-  vim.cmd('colorscheme zephyr')
+function config.catppuccin()
+  require("catppuccin").setup({
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    integrations = {
+      cmp = true,
+      gitsigns = true,
+      nvimtree = true,
+      treesitter = true,
+      dashboard = true,
+      mason = true,
+    }
+  })
+  vim.cmd.colorscheme "catppuccin"
+
 end
 
 function config.dashboard()

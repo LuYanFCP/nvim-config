@@ -5,7 +5,19 @@ package({
   'neovim/nvim-lspconfig',
   -- used filetype to lazyload lsp
   -- config your language filetype in here
-  ft = { 'lua', 'python', 'go', 'rust', 'c', 'cpp' },
+  ft = {
+    'lua',
+    'python',
+    'go',
+    'rust',
+    'c',
+    'cpp',
+    'typescript',
+    'javascript',
+    'typescriptreact',
+    'javascriptreact',
+    'sh',
+  },
   config = conf.nvim_lsp,
 })
 
@@ -42,13 +54,13 @@ package({
 package({ 'L3MON4D3/LuaSnip', event = 'InsertCharPre', config = conf.lua_snip })
 
 package({
-    'williamboman/mason.nvim',
-    ui = {
-      icons = {
-        package_installed = "✓",
-        package_pending = "➜",
-        package_uninstalled = "✗"
-      }
+  'williamboman/mason.nvim',
+  ui = {
+    icons = {
+      package_installed = '✓',
+      package_pending = '➜',
+      package_uninstalled = '✗',
     },
-    config = conf.mason,
+  },
+  config = conf.mason,
 })

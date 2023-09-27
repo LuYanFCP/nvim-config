@@ -55,7 +55,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 
 -- wrap
-opt.linebreak = true
+opt.linebreak = false
 opt.whichwrap = 'h,l,<,>,[,],~'
 opt.breakindentopt = 'shift:2,min:20'
 opt.showbreak = '↳ '
@@ -67,7 +67,7 @@ opt.number = true
 opt.signcolumn = 'yes'
 opt.spelloptions = 'camel'
 
-opt.textwidth = 100
+opt.textwidth = 0
 opt.colorcolumn = '100'
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {

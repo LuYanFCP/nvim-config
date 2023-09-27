@@ -118,3 +118,13 @@ nmap({
 
 -- lint and fmt
 nmap({ '<Leader>cf', cmd('GuardFmt'), opts(noremap, silent) })
+
+-- session config
+nmap({
+  { '<Leader>ss', cmd('SessionSave'), opts(noremap, silent) },
+  { '<Leader>sl', cmd('SessionLoad'), opts(noremap, silent) },
+  { '<Leader>st', cmd('Telescope persisted'), opts(noremap, silent)},
+  { '<Leader>sb', cmd('SessionStart'), opts(noremap, silent)},
+  { '<Leader>se', cmd('SessionStop'), opts(noremap, silent)},
+})
+
