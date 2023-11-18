@@ -107,7 +107,9 @@ nmap({
   { 'gh', cmd('Lspsaga tyd+ref+imp+def'), opts(noremap, silent) },
   { 'gi', cmd('Lspsaga incoming_calls'), opts(noremap, silent) },
   { 'go', cmd('Lspsaga outgoing_calls'), opts(noremap, silent) },
-  { 'gd', cmd('Lspsaga goto_definition'), opts(noremap, silent) },
+  { 'gdv', cmd('Lspsaga goto_definition vsplit'), opts(noremap, silent) },
+  { 'gds', cmd('Lspsaga goto_definition split'), opts(noremap, silent) },
+  { 'gdd', cmd('Lspsaga goto_definition'), opts(noremap, silent) },
   { 'gk', cmd('Lspsaga hover_doc'), opts(noremap, silent) },
   { 'gr', cmd('Lspsaga rename'), opts(noremap, silent) },
   { 'gg', cmd('Lspsaga outline'), opts(noremap, silent) },
@@ -128,3 +130,9 @@ nmap({
   { '<Leader>se', cmd('SessionStop'), opts(noremap, silent)},
 })
 
+-- git
+nmap({
+  {'<Leader>gd', cmd('GitSigns diffthis'), opts(noremap, silent)},
+  {'<leader>gyr', cmd('GitSigns reset_buffer'), opts(noremap, silent)},
+  {'<leader>gp', cmd('GitSigns preview_hunk'), opts(noremap, silent)},
+})

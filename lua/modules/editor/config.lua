@@ -56,6 +56,8 @@ function config.guard_config()
 
   -- python
   ft('python'):fmt('black')
+  -- golang
+  ft('go'):fmt('gofmt')
 
   -- multiple files register
   ft('typescript,javascript,typescriptreact'):fmt('prettier')

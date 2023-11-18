@@ -43,3 +43,5 @@ package({
 })
 
 package({ 'sindrets/diffview.nvim' })
+
+package({ 'folke/neodev.nvim' })

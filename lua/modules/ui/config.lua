@@ -2,7 +2,7 @@ local config = {}
 
 function config.catppuccin()
   require("catppuccin").setup({
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     integrations = {
       cmp = true,
       gitsigns = true,
@@ -10,7 +10,16 @@ function config.catppuccin()
       treesitter = true,
       dashboard = true,
       mason = true,
-    }
+    },
+    dim_inactive = {
+        enabled = false, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+    },
+    custom_highlights = function(colors)
+      return { Comment = { fg = "#89AEB1"}}
+    end,
+    transparent_background = true,
   })
   vim.cmd.colorscheme "catppuccin"
 

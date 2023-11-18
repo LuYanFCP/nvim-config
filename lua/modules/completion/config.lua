@@ -53,6 +53,10 @@ function config.nvim_lsp()
   lspconfig.clangd.setup({})
   -- config rust
   lspconfig.rust_analyzer.setup({})
+  -- ts/js
+  lspconfig.tsserver.setup({})
+  -- bash
+  lspconfig.bashls.setup({})
 end
 
 function config.nvim_cmp()
