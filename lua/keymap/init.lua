@@ -89,7 +89,9 @@ nmap({
 nmap({
   { '<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent) }, -- Telescope
   { '<Leader>bf', cmd('NvimTreeFindFile'), opts(noremap, silent) },
-  { '<Leader>tt', cmd('TroubleToggle'), opts(noremap, silent) },
+  { '<Leader>tt', cmd('Trouble diagnostics toggle filter.buf=0'), opts(noremap, silent) },
+  { '<Leader>tx', cmd('Trouble diagnostics toggle'), opts(noremap, silent) },
+  { '<Leader>ts', cmd('Trouble symbols toggle focus=false'), opts(noremap, silent) },
   -- plugin manager: Lazy.nvim
   { '<Leader>n', cmd('DashboardNewFile'), opts(noremap, silent) },
   { '<Leader>ss', cmd('SessionSave'), opts(noremap, silent) },
@@ -125,14 +127,14 @@ nmap({ '<Leader>cf', cmd('GuardFmt'), opts(noremap, silent) })
 nmap({
   { '<Leader>ss', cmd('SessionSave'), opts(noremap, silent) },
   { '<Leader>sl', cmd('SessionLoad'), opts(noremap, silent) },
-  { '<Leader>st', cmd('Telescope persisted'), opts(noremap, silent)},
-  { '<Leader>sb', cmd('SessionStart'), opts(noremap, silent)},
-  { '<Leader>se', cmd('SessionStop'), opts(noremap, silent)},
+  { '<Leader>st', cmd('Telescope persisted'), opts(noremap, silent) },
+  { '<Leader>sb', cmd('SessionStart'), opts(noremap, silent) },
+  { '<Leader>se', cmd('SessionStop'), opts(noremap, silent) },
 })
 
 -- git
 nmap({
-  {'<Leader>gd', cmd('GitSigns diffthis'), opts(noremap, silent)},
-  {'<leader>gyr', cmd('GitSigns reset_buffer'), opts(noremap, silent)},
-  {'<leader>gp', cmd('GitSigns preview_hunk'), opts(noremap, silent)},
+  { '<Leader>gd', cmd('GitSigns diffthis'), opts(noremap, silent) },
+  { '<leader>gyr', cmd('GitSigns reset_buffer'), opts(noremap, silent) },
+  { '<leader>gp', cmd('GitSigns preview_hunk'), opts(noremap, silent) },
 })

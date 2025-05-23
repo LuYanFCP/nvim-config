@@ -72,16 +72,30 @@ function config.nvim_bufferline()
 end
 
 function config.indent_blankline()
-  require('indent_blankline').setup({
-    char = '│',
-    use_treesitter_scope = true,
-    show_first_indent_level = true,
-    show_current_context = false,
-    show_current_context_start = false,
-    show_current_context_start_on_current_line = false,
-    filetype_exclude = { 'dashboard', 'log', 'TelescopePrompt' },
-    buftype_exclude = { 'terminal', 'nofile', 'prompt' },
-  })
+  local highlight = {
+    "RainbowRed",
+    "RainbowYellow",
+    "RainbowBlue",
+    "RainbowOrange",
+    "RainbowGreen",
+    "RainbowViolet",
+    "RainbowCyan",
+}
+
+local hooks = require "ibl.hooks"
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+end)
+
+require("ibl").setup { indent = { highlight = highlight } }
 end
 
 function config.lualine()
@@ -154,8 +168,8 @@ function config.lualine()
     -- Lsp server name .
     function()
       local msg = 'No Active Lsp'
-      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-      local clients = vim.lsp.get_active_clients()
+      local buf_ft = vim.api.nvim_get_option_value('filetype', {buffer=0})
+      local clients = vim.lsp.get_clients()
       if next(clients) == nil then
         return msg
       end
@@ -177,7 +191,7 @@ function config.nvim_tree()
   require('nvim-tree').setup({
     sort_by = 'case_sensitive',
     renderer = { group_empty = true },
-    filters = { dotfiles = False },
+    filters = { dotfiles = false },
   })
 end
 

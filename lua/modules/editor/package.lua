@@ -23,3 +23,10 @@ package({
   'shellRaining/hlchunk.nvim',
   config = conf.hlchunk,
 })
+
+package({
+  'jemag/telescope-diff.nvim',
+  config = conf.diff,
+  dependencies = { "nvim-telescope/telescope.nvim" },
+
+})

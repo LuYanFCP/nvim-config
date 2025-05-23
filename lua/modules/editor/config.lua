@@ -4,6 +4,7 @@ function config.nvim_treesitter()
   vim.api.nvim_command('set foldmethod=expr')
   vim.api.nvim_command('set foldexpr=nvim_treesitter#foldexpr()')
   require('nvim-treesitter.configs').setup({
+    enable = true,
     ensure_installed = {
       'bash',
       'c',
@@ -87,6 +88,11 @@ function config.hlchunk()
       style = "#806d9c",
     },
   })
+end
+
+function config.diff()
+
+
 end
 
 return config

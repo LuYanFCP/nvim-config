@@ -4,29 +4,9 @@ local config = {}
 function config.nvim_lsp()
   local lspconfig = require('lspconfig')
 
-  local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...)
-      vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    local function buf_set_option(...)
-      vim.api.nvim_buf_set_option(bufnr, ...)
-    end
-
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-  end
 
   -- setup python lspconfig
-  lspconfig.pyright.setup({
-    on_attach = on_attach,
-    settings = {
-      python = {
-        analysis = {
-          autoSearchPaths = true,
-          useLibraryCodeForTypes = true,
-        },
-      },
-    },
-  })
+  lspconfig.pyright.setup({})
   -- setup go lspconfig
   lspconfig.gopls.setup({})
   -- setup lua lspconfig
@@ -54,7 +34,7 @@ function config.nvim_lsp()
   -- config rust
   lspconfig.rust_analyzer.setup({})
   -- ts/js
-  lspconfig.tsserver.setup({})
+  lspconfig.ts_ls.setup({})
   -- bash
   lspconfig.bashls.setup({})
 end
@@ -115,7 +95,7 @@ function config.nvim_cmp()
 
   -- Use nvim_lsp source for all LSP servers.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  for _, lsp in ipairs(vim.lsp.get_active_clients()) do
+  for _, lsp in ipairs(vim.lsp.get_clients()) do
     lsp['capabilities'] = capabilities
   end
 
@@ -155,7 +135,7 @@ function config.copilot_nvim()
 end
 
 function config.mason()
-  require("mason").setup()
+  require('mason').setup()
 end
 
 return config
